@@ -1,0 +1,21 @@
+.page-editor-header {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.back-link, .delete-btn {
+margin: 10px 10px;
+  
+}
+
+.text-area {
+  width: 100%;
+  height: 700px;
+  background-color: rgb(251, 251, 246);
+  background-image: url('transparent-notebook-20.png');
+  background-size:cover;
+}
+
+.save-btn {
+  
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import test from './peachlogo.png'
 import './Home.css'
 import JournalCard from './JournalCard'
-
+import { Link } from 'react-router-dom'
 // when page loads
 // axios fetch journal pages from api
 // api get from db
@@ -31,8 +31,10 @@ const Home = (props) => {
   return (
     <div>
       <div className="header-container">
-        <img src={test} className="logo" />
-        <button className="create-btn">+</button>
+        <img src={test} className="logo" alt="peach-img" />
+        <Link to="/pageeditor" className="create-btn">
+          +
+        </Link>
       </div>
       <div className="gallery-container">
         <div className="journal-gallery">

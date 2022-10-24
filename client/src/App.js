@@ -1,13 +1,19 @@
 import Home from './components/Home'
 import './App.css'
-import peachlogo from './peachlogo.png'
+import pageeditor from './components/PageEditor'
+
+import { Routes, Route } from 'react-router-dom'
+
+import PageEditor from './components/PageEditor'
 
 const App = (props) => {
   return (
     <div className="app-container">
-      <header className="app-header">
-        <Home />
-      </header>
+      <header className="app-header"> </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pageeditor" element={<PageEditor />} />
+      </Routes>
     </div>
   )
 }
