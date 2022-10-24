@@ -1,9 +1,6 @@
 import Home from './components/Home'
 import './App.css'
-import pageeditor from './components/PageEditor'
-
 import { Routes, Route } from 'react-router-dom'
-
 import PageEditor from './components/PageEditor'
 
 const App = (props) => {
