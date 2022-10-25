@@ -9,7 +9,8 @@ const App = (props) => {
       <header className="app-header"> </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pageeditor" element={<PageEditor />} />
+        <Route path="/pageeditor/" element={<PageEditor />} />
+        <Route path="/pageeditor/:id" element={<PageEditor />} />
       </Routes>
     </div>
   )

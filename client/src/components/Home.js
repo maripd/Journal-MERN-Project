@@ -5,32 +5,16 @@ import JournalCard from './JournalCard'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
+
 // when page loads
 // axios fetch journal pages from api
 // api get from db
 // axios return response as js array of objects
 // in react component map the array and render <Card>
 
-const journaldatamock = [
-  {
-    id: 12345,
-    title: 'datatitle',
-    description: 'description'
-  },
-  {
-    id: 12345,
-    title: 'datatitle1',
-    description: 'description1'
-  },
-  {
-    id: 12345,
-    title: 'datatitle2',
-    description: 'description2'
-  }
-]
-
 const Home = (props) => {
   const [currentFetchedValue, setFetchedValue] = useState([])
+  //const [currentJournalCard, setJournalCard] = useState([])
 
   useEffect(() => {
     const getAllPages = async () => {
@@ -52,11 +36,14 @@ const Home = (props) => {
       <div className="gallery-container">
         <div className="journal-gallery">
           <ul className="list">
-            {currentFetchedValue.map((journalitem) => {
+            {currentFetchedValue.map((journalItem) => {
+              console.log(journalItem)
               return (
                 <JournalCard
-                  title={journalitem.journalTitle}
-                  description={journalitem.journalText}
+                  title={journalItem.journalTitle}
+                  description={journalItem.journalText}
+                  id={journalItem._id}
+                  dateCreated={journalItem.createdAt}
                 />
               )
             })}

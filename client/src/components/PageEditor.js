@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom'
 import './transparent-notebook-20.png'
 import { useState } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 const PageEditor = () => {
   const [currentText, setNewText] = useState('')
   const [currentTitle, setNewTitle] = useState('')
   //const [currentSave, setCurrentSave] = useState('')
+  let { id } = useParams()
+  console.log(id)
 
   //when save button is clicked, current value is set to updated value
   const handleClick = async () => {
