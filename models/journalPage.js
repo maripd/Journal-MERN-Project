@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const journalPage = new Schema(
   {
-    // journalPage_id: { type: String, required: true },
+    //journalPage_id: { type: String, required: true },
     journalTitle: { type: String, required: true },
     journalText: { type: String, requred: true }
     // journalDateCreated: { type: String, required: true }

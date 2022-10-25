@@ -1,4 +1,5 @@
 const journalPage = require('../models/journalPage')
+const pageEditor = require('../models/pageEditor')
 
 const createJournalPage = async (req, res) => {
   console.log(req.body)
@@ -33,8 +34,21 @@ const getPage = async (req, res) => {
   }
 }
 
+const updatePage = async (req, res) => {
+  try {
+    const pageId = req.params.id
+    const editPage = await journalPage.findByIdAndUpdate(pageId, req.body)
+    console.log(editPage)
+    return res.status(200).json({ editPage })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createJournalPage,
   getAllJournalPages,
-  getPage
+  getPage,
+  updatePage
 }

@@ -7,5 +7,6 @@ const controllers = require('../controllers/index.js')
 router.post('/journalPages', controllers.createJournalPage)
 router.get('/journalAllPages', controllers.getAllJournalPages)
 router.get('/getPage/:id', controllers.getPage)
+router.put('/updatePage/:id', controllers.updatePage)
 
 module.exports = router

@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 
 const PageEditor = (props) => {
   const [currentText, setNewText] = useState('')
-  const [currentTitle, setNewTitle] = useState('test')
+  const [currentTitle, setNewTitle] = useState('')
   const [currentId, setId] = useState('')
   let { id } = useParams()
   console.log(id)
@@ -18,23 +18,26 @@ const PageEditor = (props) => {
       console.log(response.data.journalItem)
       setNewTitle(response.data.journalItem.journalTitle)
       setNewText(response.data.journalItem.journalText)
+      setId(response.data.journalItem._id)
     }
     getSpecificId()
   }, [])
 
   //when save button is clicked, current value is set to updated value
   const handleClick = async () => {
-    let response = await axios.post('http://localhost:3001/journalPages', {
+    //if id exists, call API update, else call API create(post)
+
+    let response = await axios.put(`http://localhost:3001/updatePage/${id}`, {
       journalTitle: currentTitle,
       journalText: currentText
     })
   }
-  //when text is added, it updates current state
+  //when text is added, it updates current text
   const handleChange = (e) => {
     setNewText(e.target.value)
     console.log(e.target.value, 'noteContent')
   }
-
+  //when title is added, it updates current title
   const titleHandleChange = (e) => {
     setNewTitle(e.target.value)
     console.log(e.target.value, 'titleContent')
