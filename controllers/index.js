@@ -22,7 +22,19 @@ const getAllJournalPages = async (req, res) => {
   }
 }
 
+const getPage = async (req, res) => {
+  try {
+    const pageId = req.params.id
+    const journalItem = await journalPage.findById(pageId)
+    return res.status(200).json({ journalItem })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createJournalPage,
-  getAllJournalPages
+  getAllJournalPages,
+  getPage
 }

@@ -1,16 +1,26 @@
 import './PageEditor.css'
 import { Link } from 'react-router-dom'
 import './transparent-notebook-20.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-const PageEditor = () => {
+const PageEditor = (props) => {
   const [currentText, setNewText] = useState('')
-  const [currentTitle, setNewTitle] = useState('')
-  //const [currentSave, setCurrentSave] = useState('')
+  const [currentTitle, setNewTitle] = useState('test')
+  const [currentId, setId] = useState('')
   let { id } = useParams()
   console.log(id)
+
+  useEffect(() => {
+    const getSpecificId = async () => {
+      let response = await axios.get(`http://localhost:3001/getPage/${id}`)
+      console.log(response.data.journalItem)
+      setNewTitle(response.data.journalItem.journalTitle)
+      setNewText(response.data.journalItem.journalText)
+    }
+    getSpecificId()
+  }, [])
 
   //when save button is clicked, current value is set to updated value
   const handleClick = async () => {

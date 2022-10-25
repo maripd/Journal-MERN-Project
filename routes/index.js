@@ -6,5 +6,6 @@ const controllers = require('../controllers/index.js')
 //add root route
 router.post('/journalPages', controllers.createJournalPage)
 router.get('/journalAllPages', controllers.getAllJournalPages)
+router.get('/getPage/:id', controllers.getPage)
 
 module.exports = router
