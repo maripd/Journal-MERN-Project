@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import test from './peachlogo.png'
 import './Home.css'
 import JournalCard from './JournalCard'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useState } from 'react'
 // when page loads
 // axios fetch journal pages from api
 // api get from db
@@ -28,6 +30,17 @@ const journaldatamock = [
 ]
 
 const Home = (props) => {
+  const [currentFetchedValue, setFetchedValue] = useState([])
+
+  useEffect(() => {
+    const getAllPages = async () => {
+      let response = await axios.get('http://localhost:3001/journalAllPages')
+      setFetchedValue(response.data.allPages)
+    }
+
+    getAllPages()
+  }, [])
+
   return (
     <div>
       <div className="header-container">
@@ -39,11 +52,11 @@ const Home = (props) => {
       <div className="gallery-container">
         <div className="journal-gallery">
           <ul className="list">
-            {journaldatamock.map((journalitem) => {
+            {currentFetchedValue.map((journalitem) => {
               return (
                 <JournalCard
-                  title={journalitem.title}
-                  description={journalitem.description}
+                  title={journalitem.journalTitle}
+                  description={journalitem.journalText}
                 />
               )
             })}
