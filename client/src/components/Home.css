@@ -1,20 +1,23 @@
 .list {
- 
+  width: 1200px;
   display:flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   flex-wrap: wrap;
   font-family: 'Gothic A1';
+  margin: 20px 50px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' height='30' width='500'%3e%3cline x1='0' y1='0' x2='500' y2='0' style='stroke:%23EAE7D9%3bstroke-width:3'/%3e%3c/svg%3e");
+
 }
 
 .list > li {
   list-style: none;
-  border: 1px solid rgb(246, 230, 191);
-  width: 230px;
-  height: 230px;
-  overflow: hidden;
-  margin: 10px auto;
+  border: 1px solid rgb(235, 224, 197);
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+  margin: 15px 10px;
   padding: 3px 5px;
   border-radius: 3px;
 }
@@ -23,34 +26,51 @@
   width: 100%;
   height: 150px;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   background-color: rgb(243, 231, 218);
 }
 .logo {
+  margin: auto 30px;
   display: flex;
-  justify-content: space-between;
-  width: 60px
-  
+  font-family: 'Sacramento';
+  font-size: 50px;
+  color: rgb(157, 150, 143);
+  opacity: .8;
 }
 
 .create-btn {
   border-radius: 1px solid rgb(144, 142, 142);
-  margin: 20px 20px 20px auto;
-  padding: 3px 3px;
-  width: 20px;
+  margin: auto 24px;
   display: flex;
   text-decoration: none;
-  color: rgb(180, 170, 160);
-  font-size: 18px;
+  color: rgb(157, 150, 143);
+  font-size: 21px;
+}
+
+.create-btn:hover {
+  color: rgb(156, 156, 180);
+  font-weight: bold;
 }
 
 li {
   text-align: center;
   line-height: 2em;
+  font-family: 'Gothic A1';
 }
 
 h4 {
-  margin: 10px auto;
-  font-weight:bold
+  margin: 15px auto;
+  padding: 10px auto;
+  font-weight:bold;
+  font-family: 'Gothic A1';
 }
 
+li:hover, h4:hover {
+  color:rgba(41, 111, 141, 0.502);
+  font-weight: bold;
+}
+
+.journal-gallery {
+  display: flex;
+  justify-content: center;
+}

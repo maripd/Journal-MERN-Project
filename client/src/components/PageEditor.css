@@ -21,26 +21,32 @@ font-weight: 450;
 }
 
 .save-btn:hover, .delete-btn:hover, .back-link:hover {
+  font-weight: bold;
   color:rgb(188, 225, 226)
 }
 .save-btn:active, .delete-btn:active, .back-link:active {
-  color:rgb(158, 173, 203)
+  color:rgb(158, 173, 203);
+  font-weight: bold;
 }
 
 .text-area {
+  font-family: 'Gothic A1';
+  font-size:x-large;
+  color: rgb(121, 115, 115);
   width: 100%;
   height: 700px;
-  background-color: rgb(251, 251, 246);
-  background-image: url('transparent-notebook-20.png');
-  background-size:cover;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' height='30' width='500'%3e%3cline x1='0' y1='0' x2='500' y2='0' style='stroke:%23EAE7D9%3bstroke-width:3'/%3e%3c/svg%3e");
+
   margin: 10px auto;
 }
 
 .note-title {
 width: 50%;
+color: gray;
 margin: 10px 300px 5px 10px;
 border-radius: 5px;
 border-color: rgb(220, 206, 188);
+padding: auto 10px;
 }
 
 input {

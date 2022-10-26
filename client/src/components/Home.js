@@ -25,11 +25,12 @@ const Home = (props) => {
   }, [])
 
   return (
-    <div>
+    <div className="main-container">
       <div className="header-container">
-        <img src={test} className="logo" alt="peach-img" />
+        <h2 className="logo">Journal</h2>
+        {/* <img src={test} className="logo" alt="peach-img" /> */}
         <Link to="/pageeditor" className="create-btn">
-          +
+          Create+
         </Link>
       </div>
       <div className="gallery-container">
