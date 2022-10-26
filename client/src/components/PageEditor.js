@@ -10,6 +10,7 @@ const PageEditor = (props) => {
   const [currentText, setNewText] = useState('')
   const [currentTitle, setNewTitle] = useState('')
   const [currentId, setId] = useState('')
+  const navigate = useNavigate()
   let { id } = useParams()
 
   useEffect(() => {
@@ -41,6 +42,7 @@ const PageEditor = (props) => {
 
   const deleteHandleClick = async () => {
     let response = await axios.delete(`http://localhost:3001/deletePage/${id}`)
+    navigate('/')
   }
 
   //when text is added, it updates current text
