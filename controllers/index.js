@@ -46,9 +46,22 @@ const updatePage = async (req, res) => {
   }
 }
 
+const deletePage = async (req, res) => {
+  const pageId = req.params.id
+  try {
+    const removePage = await journalPage.findByIdAndDelete(pageId)
+    console.log(removePage)
+    return res.status(200).json({ removePage })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createJournalPage,
   getAllJournalPages,
   getPage,
-  updatePage
+  updatePage,
+  deletePage
 }

@@ -8,5 +8,6 @@ router.post('/journalPages', controllers.createJournalPage)
 router.get('/journalAllPages', controllers.getAllJournalPages)
 router.get('/getPage/:id', controllers.getPage)
 router.put('/updatePage/:id', controllers.updatePage)
+router.delete('/deletePage/:id', controllers.deletePage)
 
 module.exports = router

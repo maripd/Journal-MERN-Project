@@ -4,6 +4,7 @@ import './transparent-notebook-20.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const PageEditor = (props) => {
   const [currentText, setNewText] = useState('')
@@ -25,12 +26,23 @@ const PageEditor = (props) => {
   //when save button is clicked, current value is set to updated value
   const handleClick = async () => {
     //if id exists, call API update, else call API create(post)
-
-    let response = await axios.put(`http://localhost:3001/updatePage/${id}`, {
-      journalTitle: currentTitle,
-      journalText: currentText
-    })
+    if (id === undefined) {
+      let response = await axios.post('http://localhost:3001/journalPages', {
+        journalTitle: currentTitle,
+        journalText: currentText
+      })
+    } else {
+      let response = await axios.put(`http://localhost:3001/updatePage/${id}`, {
+        journalTitle: currentTitle,
+        journalText: currentText
+      })
+    }
   }
+
+  const deleteHandleClick = async () => {
+    let response = await axios.delete(`http://localhost:3001/deletePage/${id}`)
+  }
+
   //when text is added, it updates current text
   const handleChange = (e) => {
     setNewText(e.target.value)
@@ -57,7 +69,9 @@ const PageEditor = (props) => {
         <button onClick={handleClick} className="save-btn">
           Save
         </button>
-        <button className="delete-btn">Delete</button>
+        <button onClick={deleteHandleClick} className="delete-btn">
+          Delete
+        </button>
       </div>
 
       <textarea
