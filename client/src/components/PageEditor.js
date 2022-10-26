@@ -10,7 +10,6 @@ const PageEditor = (props) => {
   const [currentTitle, setNewTitle] = useState('')
   const [currentId, setId] = useState('')
   let { id } = useParams()
-  console.log(id)
 
   useEffect(() => {
     const getSpecificId = async () => {

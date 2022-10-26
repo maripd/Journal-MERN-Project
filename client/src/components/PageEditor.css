@@ -1,21 +1,30 @@
 .page-editor-header {
   display: flex;
-  justify-content: right ;
+  justify-content: center ;
+  margin: 10px 10px;
   
- 
 }
 .back-link {
 margin: 15px;
 text-decoration: none;
-color: black;
-font-size: 15px;
+color: rgb(153, 141, 141);
+font-size: 17px;
+font-weight: 450;
 }
 .save-btn, .delete-btn {
   background-color: white;
   border: none;
   margin: 15px 10px;
-  font-size: 15px;
-  
+  font-size: 17px;
+  font-weight: 500;
+  color: rgb(153, 141, 141);
+}
+
+.save-btn:hover, .delete-btn:hover, .back-link:hover {
+  color:rgb(188, 225, 226)
+}
+.save-btn:active, .delete-btn:active, .back-link:active {
+  color:rgb(158, 173, 203)
 }
 
 .text-area {
@@ -32,4 +41,10 @@ width: 50%;
 margin: 10px 300px 5px 10px;
 border-radius: 5px;
 border-color: rgb(220, 206, 188);
+}
+
+input {
+  all:unset;
+  border: 1px solid rgb(247, 241, 230);
+  text-align: left;
 }

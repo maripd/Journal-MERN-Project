@@ -14,7 +14,6 @@ import { useState } from 'react'
 
 const Home = (props) => {
   const [currentFetchedValue, setFetchedValue] = useState([])
-  //const [currentJournalCard, setJournalCard] = useState([])
 
   useEffect(() => {
     const getAllPages = async () => {
