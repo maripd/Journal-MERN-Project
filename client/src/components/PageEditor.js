@@ -60,7 +60,11 @@ const PageEditor = (props) => {
 
   const menuHandleClick = (e) => {
     //when clicked, set state
-    setMenuState(true)
+    if (currentMenuState === false) {
+      setMenuState(true)
+    } else {
+      setMenuState(false)
+    }
   }
   console.log(currentMenuState)
   let panelDisplay = 'hide'
