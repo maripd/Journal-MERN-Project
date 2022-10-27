@@ -30,18 +30,24 @@ font-weight: 450;
 }
 
 .text-area {
+  border-left: none;
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  max-width: 1000px;
   font-family: 'Gothic A1';
   font-size:x-large;
-  color: rgb(121, 115, 115);
+  color: rgb(157, 154, 154);
   width: 100%;
-  height: 700px;
+  height: 100vh;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' height='30' width='500'%3e%3cline x1='0' y1='0' x2='500' y2='0' style='stroke:%23EAE7D9%3bstroke-width:3'/%3e%3c/svg%3e");
-
+  background-repeat:repeat;
+  border-color: gray;
   margin: 10px auto;
 }
 
 .note-title {
-width: 50%;
+width: 500px;
 color: gray;
 margin: 10px 300px 5px 10px;
 border-radius: 5px;
@@ -53,4 +59,50 @@ input {
   all:unset;
   border: 1px solid rgb(247, 241, 230);
   text-align: left;
+}
+.stickers-container {
+  border: 1px solid rgb(237, 230, 218);
+  width: 950px;
+  height: 50px;
+  background-color: white;
+}
+
+
+.dropdown-panel {
+  display: block;
+  border: 1px solid rgb(211, 195, 183);
+  width: 850px;
+  height: 150px;
+  margin: 10px auto;
+
+}
+
+.sticker-img {
+  margin: 10px 10px;
+  width: 50px;
+  height: 50px;
+
+}
+
+.hide {
+  display: none;
+}
+
+
+button {
+  display: flex;
+  margin-left: auto;
+  margin-right: 230px;
+ 
+}
+.stickers-container {
+ display: flex;
+ 
+}
+.sticker-area {
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid rgb(211, 195, 183);
+  width: 600px;
+  height: 50px;
 }

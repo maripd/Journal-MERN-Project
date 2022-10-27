@@ -58,10 +58,22 @@ const deletePage = async (req, res) => {
   }
 }
 
+const addStickers = async (req, res) => {
+  console.log(req.body)
+  try {
+    const stickers = await new journalPage(req.body)
+    await stickers.save()
+    return res.status(201).json({ stickers })
+  } catch (error) {
+    return res.status(500).json({ error: 'There is an error!' })
+  }
+}
+
 module.exports = {
   createJournalPage,
   getAllJournalPages,
   getPage,
   updatePage,
-  deletePage
+  deletePage,
+  addStickers
 }

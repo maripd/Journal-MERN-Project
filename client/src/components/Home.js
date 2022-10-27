@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import test from './peachlogo.png'
 import './Home.css'
 import JournalCard from './JournalCard'
 import { Link } from 'react-router-dom'
@@ -27,8 +26,7 @@ const Home = (props) => {
   return (
     <div className="main-container">
       <div className="header-container">
-        <h2 className="logo">Journal</h2>
-        {/* <img src={test} className="logo" alt="peach-img" /> */}
+        <h2 className="logo">Notepad</h2>
         <Link to="/pageeditor" className="create-btn">
           Create+
         </Link>

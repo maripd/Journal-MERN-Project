@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { useEffect } from 'react'
+// import { useState } from 'react'
+// import { useEffect } from 'react'
 import './card.css'
 
 const JournalCard = (props) => {

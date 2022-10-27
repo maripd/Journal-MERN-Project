@@ -1,14 +1,16 @@
 import './PageEditor.css'
 import { Link } from 'react-router-dom'
-import './transparent-notebook-20.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import stickers from './stickerObj'
 
 const PageEditor = (props) => {
   const [currentText, setNewText] = useState('')
   const [currentTitle, setNewTitle] = useState('')
+  const [currentStickers, setStickers] = useState([])
+  const [currentMenuState, setMenuState] = useState(false)
   const [currentId, setId] = useState('')
   const navigate = useNavigate()
   let { id } = useParams()
@@ -26,7 +28,7 @@ const PageEditor = (props) => {
 
   //when save button is clicked, current value is set to updated value
   const handleClick = async () => {
-    //if id exists, call API update, else call API create(post)
+    //if id does not exist, call API post, else call API http request put)
     if (id === undefined) {
       let response = await axios.post('http://localhost:3001/journalPages', {
         journalTitle: currentTitle,
@@ -56,6 +58,22 @@ const PageEditor = (props) => {
     console.log(e.target.value, 'titleContent')
   }
 
+  const menuHandleClick = (e) => {
+    //when clicked, set state
+    setMenuState(true)
+  }
+  console.log(currentMenuState)
+  let panelDisplay = 'hide'
+  if (currentMenuState === true) {
+    panelDisplay = ''
+  }
+
+  const stickerHandleClick = (stickerKeyItem) => {
+    console.log(stickerKeyItem)
+    //destructure: update currentStickers and add stickerKeyItem
+    setStickers([...currentStickers, stickers[stickerKeyItem]])
+  }
+
   return (
     <div>
       <div className="page-editor-header">
@@ -76,6 +94,36 @@ const PageEditor = (props) => {
         </button>
       </div>
 
+      <div className="sticker-container">
+        <div className="sticker-area">
+          {currentStickers.map((stickerItem) => {
+            return (
+              <img
+                src={stickerItem}
+                style={{ width: '40px', height: '40px', margin: 'auto 10px' }}
+              />
+            )
+          })}
+        </div>
+
+        <button onClick={menuHandleClick} className="addstickers-btn">
+          +
+        </button>
+        <div className={`dropdown-panel ${panelDisplay}`}>
+          {Object.keys(stickers).map((stickerKeyItem) => {
+            // console.log(stickerKeyItem)
+            return (
+              <img
+                onClick={(e) => {
+                  stickerHandleClick(stickerKeyItem)
+                }}
+                className="sticker-img"
+                src={stickers[stickerKeyItem]}
+              />
+            )
+          })}
+        </div>
+      </div>
       <textarea
         value={currentText}
         onChange={(e) => handleChange(e, 'noteContent')}
