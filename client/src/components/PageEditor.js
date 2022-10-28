@@ -25,6 +25,7 @@ const PageEditor = (props) => {
   const [currentUserStickers, setUserStickers] = useState([])
   const [currentMenuState, setMenuState] = useState(false)
   const [currentAllStickers, setAllStickers] = useState([])
+  const [currentClickState, setClickState] = useState(false)
 
   const navigate = useNavigate()
   let { id } = useParams()
@@ -51,7 +52,7 @@ const PageEditor = (props) => {
   const handleClick = async () => {
     //if id does not exist, call API post, else call API http request put)
     if (id === undefined) {
-      //create a random number, use 0-9 to get random color, and then to journalColor.
+      //create a random number, use random num to get random color, and then assign to journalColor.
       const randomNumber = Math.floor(Math.random() * colorArray.length)
       console.log(randomNumber)
       const randomColor = colorArray[randomNumber]
@@ -149,7 +150,6 @@ const PageEditor = (props) => {
         </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
           {currentAllStickers.map((stickerItem) => {
-            // console.log(stickerKeyItem)
             return (
               <img
                 onClick={(e) => {
