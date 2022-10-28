@@ -19,7 +19,6 @@ const Home = (props) => {
       let response = await axios.get('http://localhost:3001/journalAllPages')
       setFetchedValue(response.data.allPages)
     }
-
     getAllPages()
   }, [])
 
@@ -42,6 +41,7 @@ const Home = (props) => {
                   description={journalItem.journalText}
                   id={journalItem._id}
                   dateCreated={journalItem.createdAt}
+                  journalColor={journalItem.journalColor}
                 />
               )
             })}

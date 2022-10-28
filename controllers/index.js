@@ -1,5 +1,5 @@
 const journalPage = require('../models/journalPage')
-const pageEditor = require('../models/pageEditor')
+const stickers = require('../models/stickers')
 
 const createJournalPage = async (req, res) => {
   console.log(req.body)
@@ -10,7 +10,7 @@ const createJournalPage = async (req, res) => {
     return res.status(201).json({ newPage })
   } catch (error) {
     //status 500 means server has encountered a situation it does not know how to handle
-    return res.status(500).json({ error: `Something's wrong!` })
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -58,14 +58,14 @@ const deletePage = async (req, res) => {
   }
 }
 
-const addStickers = async (req, res) => {
+const getStickers = async (req, res) => {
   console.log(req.body)
   try {
-    const stickers = await new journalPage(req.body)
-    await stickers.save()
-    return res.status(201).json({ stickers })
+    const allStickers = await stickers.find()
+
+    return res.status(200).json({ allStickers })
   } catch (error) {
-    return res.status(500).json({ error: 'There is an error!' })
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -75,5 +75,5 @@ module.exports = {
   getPage,
   updatePage,
   deletePage,
-  addStickers
+  getStickers
 }

@@ -20,6 +20,9 @@
   margin: 15px 10px;
   padding: 3px 5px;
   border-radius: 3px;
+  opacity: .6;
+  box-shadow: 1px 1px 12px rgb(209, 208, 207);;
+  
 }
 
 .header-container {
@@ -56,6 +59,7 @@ li {
   text-align: center;
   line-height: 2em;
   font-family: 'Gothic A1';
+  z-index: 1;
 }
 
 h4 {
@@ -63,6 +67,7 @@ h4 {
   padding: 10px auto;
   font-weight:bold;
   font-family: 'Gothic A1';
+  z-index: 1;
 }
 
 li:hover, h4:hover {

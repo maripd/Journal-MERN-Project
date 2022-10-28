@@ -6,38 +6,67 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import stickers from './stickerObj'
 
+const colorArray = [
+  '#e3dbca',
+  '#95bab6',
+  '#95acba',
+  '#cca793',
+  '#c29396',
+  '#728c88',
+  '#c9c9b9',
+  '#b59264',
+  '#cfc8c0',
+  '#e0e6d3'
+]
+
 const PageEditor = (props) => {
   const [currentText, setNewText] = useState('')
   const [currentTitle, setNewTitle] = useState('')
-  const [currentStickers, setStickers] = useState([])
+  const [currentUserStickers, setUserStickers] = useState([])
   const [currentMenuState, setMenuState] = useState(false)
-  const [currentId, setId] = useState('')
+  const [currentAllStickers, setAllStickers] = useState([])
+
   const navigate = useNavigate()
   let { id } = useParams()
 
   useEffect(() => {
-    const getSpecificId = async () => {
-      let response = await axios.get(`http://localhost:3001/getPage/${id}`)
-      console.log(response.data.journalItem)
-      setNewTitle(response.data.journalItem.journalTitle)
-      setNewText(response.data.journalItem.journalText)
-      setId(response.data.journalItem._id)
+    const getData = async () => {
+      //get all stickers
+      let stickerResponse = await axios.get('http://localhost:3001/getStickers')
+      console.log(stickerResponse.data)
+      //if id exists, populate title and text
+      if (id !== undefined) {
+        let response = await axios.get(`http://localhost:3001/getPage/${id}`)
+        console.log(response.data.journalItem)
+        setNewTitle(response.data.journalItem.journalTitle)
+        setNewText(response.data.journalItem.journalText)
+        setUserStickers(response.data.journalItem.journalStickers || [])
+      }
+      setAllStickers(stickerResponse.data.allStickers)
     }
-    getSpecificId()
+    getData()
   }, [])
-
+  console.log(currentAllStickers)
   //when save button is clicked, current value is set to updated value
   const handleClick = async () => {
     //if id does not exist, call API post, else call API http request put)
     if (id === undefined) {
+      //create a random number, use 0-9 to get random color, and then to journalColor.
+      const randomNumber = Math.floor(Math.random() * colorArray.length)
+      console.log(randomNumber)
+      const randomColor = colorArray[randomNumber]
+
       let response = await axios.post('http://localhost:3001/journalPages', {
         journalTitle: currentTitle,
-        journalText: currentText
+        journalText: currentText,
+        journalStickers: currentUserStickers,
+        journalColor: randomColor
       })
     } else {
       let response = await axios.put(`http://localhost:3001/updatePage/${id}`, {
         journalTitle: currentTitle,
-        journalText: currentText
+        journalText: currentText,
+        journalStickers: currentUserStickers
       })
     }
   }
@@ -72,10 +101,10 @@ const PageEditor = (props) => {
     panelDisplay = ''
   }
 
-  const stickerHandleClick = (stickerKeyItem) => {
-    console.log(stickerKeyItem)
-    //destructure: update currentStickers and add stickerKeyItem
-    setStickers([...currentStickers, stickers[stickerKeyItem]])
+  const stickerHandleClick = (stickerItem) => {
+    console.log(stickerItem)
+    //destructure: update currentUserStickers and add stickerKeyItem
+    setUserStickers([...currentUserStickers, stickerItem._id])
   }
 
   return (
@@ -100,29 +129,34 @@ const PageEditor = (props) => {
 
       <div className="sticker-container">
         <div className="sticker-area">
-          {currentStickers.map((stickerItem) => {
+          {currentUserStickers.map((stickerId) => {
+            //look for the sticker object that matches the sticker id
+            const findStickerObj = currentAllStickers.find((stickerObj) => {
+              return stickerObj._id === stickerId
+            })
             return (
               <img
-                src={stickerItem}
+                src={stickers[findStickerObj.name]}
                 style={{ width: '40px', height: '40px', margin: 'auto 10px' }}
               />
             )
           })}
         </div>
-
-        <button onClick={menuHandleClick} className="addstickers-btn">
-          +
-        </button>
+        <div className="stickerbtn-container">
+          <button onClick={menuHandleClick} className="addstickers-btn">
+            +
+          </button>
+        </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
-          {Object.keys(stickers).map((stickerKeyItem) => {
+          {currentAllStickers.map((stickerItem) => {
             // console.log(stickerKeyItem)
             return (
               <img
                 onClick={(e) => {
-                  stickerHandleClick(stickerKeyItem)
+                  stickerHandleClick(stickerItem)
                 }}
                 className="sticker-img"
-                src={stickers[stickerKeyItem]}
+                src={stickers[stickerItem.name]}
               />
             )
           })}

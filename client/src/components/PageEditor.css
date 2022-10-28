@@ -44,6 +44,7 @@ font-weight: 450;
   background-repeat:repeat;
   border-color: gray;
   margin: 10px auto;
+  
 }
 
 .note-title {
@@ -97,7 +98,7 @@ button {
 }
 .stickers-container {
  display: flex;
- 
+ box-shadow: 4px 4px 6px rgb(243, 240, 240);
 }
 .sticker-area {
   margin: 0 auto;
@@ -105,4 +106,16 @@ button {
   border: 1px solid rgb(211, 195, 183);
   width: 600px;
   height: 50px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgb(247, 244, 244);
+}
+
+.stickerbtn-container {
+  display: flex;
+  width: 840px;
+  margin: auto auto;
+}
+
+.addstickers-btn {
+margin-left: 820px;
 }
