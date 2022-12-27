@@ -5,6 +5,7 @@ const logger = require('morgan')
 const cors = require('cors')
 
 const PORT = process.env.PORT || 3001
+// const routes = require('./routes/api')
 
 //create server by calling express function
 //use is a way to add functionality to our server
