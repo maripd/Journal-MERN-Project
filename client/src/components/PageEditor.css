@@ -75,7 +75,7 @@ input {
   display: block;
   border: 1px solid rgb(211, 195, 183);
   width: 850px;
-  height: 150px;
+  height: 210px;
   margin: 10px auto;
 
 }
@@ -84,7 +84,6 @@ input {
   margin: 10px 10px;
   width: 50px;
   height: 50px;
-
 }
 
 .hide {

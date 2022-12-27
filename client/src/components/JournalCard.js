@@ -9,6 +9,7 @@ const JournalCard = (props) => {
   const cardHandleClick = () => {
     navigate(`/pageeditor/${props.id}`)
   }
+
   return (
     <li
       onClick={cardHandleClick}
