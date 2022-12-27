@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/', routes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
-// app.get('/*', (req, res) => {
-//   res.sendFile(`${__dirname}/client/build/index.html`)
-// })
-//start server, ready to listen to requests
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
+start server, ready to listen to requests
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
