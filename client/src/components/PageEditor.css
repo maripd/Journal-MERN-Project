@@ -121,3 +121,8 @@ button {
 .addstickers-btn {
 margin-left: 820px;
 }
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+}
