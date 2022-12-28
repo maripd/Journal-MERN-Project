@@ -113,21 +113,25 @@ const PageEditor = (props) => {
   return (
     <div>
       <div className="page-editor-header">
-        <input
-          value={currentTitle}
-          onChange={(e) => titleHandleChange(e, 'titleContent')}
-          className="note-title"
-          placeholder="title of your note"
-        ></input>
-        <Link to="/" className="back-link">
-          Back
-        </Link>
-        <button onClick={handleClick} className="save-btn">
-          Save
-        </button>
-        <button onClick={deleteHandleClick} className="delete-btn">
-          Delete
-        </button>
+        <div className="titleinput-container">
+          <input
+            value={currentTitle}
+            onChange={(e) => titleHandleChange(e, 'titleContent')}
+            className="note-title"
+            placeholder="title of your note"
+          ></input>
+        </div>
+        <div className="buttons-container">
+          <Link to="/" className="back-link">
+            Back
+          </Link>
+          <button onClick={handleClick} className="save-btn">
+            Save
+          </button>
+          <button onClick={deleteHandleClick} className="delete-btn">
+            Delete
+          </button>
+        </div>
       </div>
 
       <div className="sticker-container">
