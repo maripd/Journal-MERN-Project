@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const schema = new Schema(
   {
-    name: { type: String, required: true }
+    name: { type: String, required: false }
   },
   { timestamps: true }
 )
