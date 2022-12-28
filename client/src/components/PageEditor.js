@@ -33,11 +33,11 @@ const PageEditor = (props) => {
   useEffect(() => {
     const getData = async () => {
       //get all stickers
-      let stickerResponse = await axios.get('http://localhost:3001/getStickers')
+      let stickerResponse = await axios.get('/getStickers')
       console.log(stickerResponse.data)
       //if id exists, populate title and text
       if (id !== undefined) {
-        let response = await axios.get(`http://localhost:3001/getPage/${id}`)
+        let response = await axios.get(`/getPage/${id}`)
         console.log(response.data.journalItem)
         setNewTitle(response.data.journalItem.journalTitle)
         setNewText(response.data.journalItem.journalText)
@@ -57,14 +57,14 @@ const PageEditor = (props) => {
       console.log(randomNumber)
       const randomColor = colorArray[randomNumber]
 
-      let response = await axios.post('http://localhost:3001/journalPages', {
+      let response = await axios.post('/journalPages', {
         journalTitle: currentTitle,
         journalText: currentText,
         journalStickers: currentUserStickers,
         journalColor: randomColor
       })
     } else {
-      let response = await axios.put(`http://localhost:3001/updatePage/${id}`, {
+      let response = await axios.put(`/updatePage/${id}`, {
         journalTitle: currentTitle,
         journalText: currentText,
         journalStickers: currentUserStickers
@@ -73,7 +73,7 @@ const PageEditor = (props) => {
   }
 
   const deleteHandleClick = async () => {
-    let response = await axios.delete(`http://localhost:3001/deletePage/${id}`)
+    let response = await axios.delete(`/deletePage/${id}`)
     navigate('/')
   }
 

@@ -16,7 +16,7 @@ const Home = (props) => {
 
   useEffect(() => {
     const getAllPages = async () => {
-      let response = await axios.get('http://localhost:3001/journalAllPages')
+      let response = await axios.get('/journalAllPages')
       setFetchedValue(response.data.allPages)
     }
     getAllPages()
