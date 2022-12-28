@@ -16,8 +16,8 @@ const createJournalPage = async (req, res) => {
 
 const getAllJournalPages = async (req, res) => {
   try {
-    console.log('Hello journalpage')
     const allPages = await journalPage.find()
+    console.log('Hello journalpage')
     return res.status(200).json({ allPages })
   } catch (error) {
     return res.status(500).send(error.message)
