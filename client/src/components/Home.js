@@ -4,7 +4,7 @@ import JournalCard from './JournalCard'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
-
+const BASE_URL = 'https://marijobtracker.herokuapp.com'
 // when page loads
 // axios fetch journal pages from api
 // api get from db
@@ -16,7 +16,7 @@ const Home = (props) => {
 
   useEffect(() => {
     const getAllPages = async () => {
-      let response = await axios.get('/journalAllPages')
+      let response = await axios.get(`${BASE_URL}/journalAllPages`)
       setFetchedValue(response.data.allPages)
     }
     getAllPages()

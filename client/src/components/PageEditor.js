@@ -26,7 +26,7 @@ const PageEditor = (props) => {
   const [currentMenuState, setMenuState] = useState(false)
   const [currentAllStickers, setAllStickers] = useState([])
   const [currentClickState, setClickState] = useState(false)
-
+  const BASE_URL = 'https://marijobtracker.herokuapp.com'
   const navigate = useNavigate()
   let { id } = useParams()
 
@@ -37,7 +37,7 @@ const PageEditor = (props) => {
       console.log(stickerResponse.data)
       //if id exists, populate title and text
       if (id !== undefined) {
-        let response = await axios.get(`/getPage/${id}`)
+        let response = await axios.get(`${BASE_URL}/getPage/${id}`)
         console.log(response.data.journalItem)
         setNewTitle(response.data.journalItem.journalTitle)
         setNewText(response.data.journalItem.journalText)
@@ -57,14 +57,14 @@ const PageEditor = (props) => {
       console.log(randomNumber)
       const randomColor = colorArray[randomNumber]
 
-      let response = await axios.post('/journalPages', {
+      let response = await axios.post(`${BASE_URL}/journalPages`, {
         journalTitle: currentTitle,
         journalText: currentText,
         journalStickers: currentUserStickers,
         journalColor: randomColor
       })
     } else {
-      let response = await axios.put(`/updatePage/${id}`, {
+      let response = await axios.put(`${BASE_URL}/updatePage/${id}`, {
         journalTitle: currentTitle,
         journalText: currentText,
         journalStickers: currentUserStickers
@@ -73,7 +73,7 @@ const PageEditor = (props) => {
   }
 
   const deleteHandleClick = async () => {
-    let response = await axios.delete(`/deletePage/${id}`)
+    let response = await axios.delete(`${BASE_URL}/deletePage/${id}`)
     navigate('/')
   }
 
