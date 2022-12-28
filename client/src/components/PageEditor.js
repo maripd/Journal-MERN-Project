@@ -69,6 +69,7 @@ const PageEditor = (props) => {
         journalText: currentText,
         journalStickers: currentUserStickers
       })
+      navigate('/')
     }
   }
 
