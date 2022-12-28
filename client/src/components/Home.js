@@ -4,7 +4,7 @@ import JournalCard from './JournalCard'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
-const BASE_URL = 'https://marijobtracker.herokuapp.com'
+const BASE_URL = 'https://marinotepad.herokuapp.com'
 // when page loads
 // axios fetch journal pages from api
 // api get from db

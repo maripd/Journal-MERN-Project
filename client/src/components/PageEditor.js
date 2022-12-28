@@ -26,7 +26,7 @@ const PageEditor = (props) => {
   const [currentMenuState, setMenuState] = useState(false)
   const [currentAllStickers, setAllStickers] = useState([])
   const [currentClickState, setClickState] = useState(false)
-  const BASE_URL = 'https://marijobtracker.herokuapp.com'
+  const BASE_URL = 'https://marinotepad.herokuapp.com'
   const navigate = useNavigate()
   let { id } = useParams()
 

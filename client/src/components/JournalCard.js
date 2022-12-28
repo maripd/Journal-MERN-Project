@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './card.css'
-const BASE_URL = 'https://marijobtracker.herokuapp.com'
+const BASE_URL = 'https://marinotepad.herokuapp.com'
 
 const JournalCard = (props) => {
   const navigate = useNavigate()
