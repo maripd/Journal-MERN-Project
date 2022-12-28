@@ -63,6 +63,7 @@ const PageEditor = (props) => {
         journalStickers: currentUserStickers,
         journalColor: randomColor
       })
+      navigate('/')
     } else {
       let response = await axios.put(`${BASE_URL}/updatePage/${id}`, {
         journalTitle: currentTitle,
