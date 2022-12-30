@@ -5,7 +5,7 @@
   margin: 15px auto;
   max-width: 1000px;
   width: 90%;
-  min-width: 376px;
+  min-width: 375px;
 }
 .back-link {
 color: rgb(153, 141, 141);
@@ -54,7 +54,7 @@ border: none;
 }
 
 .note-title {
-width: 197px;
+width: 50%;
 margin: 10px auto;
 height: 25px;
 color: gray;
@@ -108,7 +108,7 @@ button {
   text-align: center;
   border: 1px solid rgb(211, 195, 183);
   width: 90%;
-  min-width: 376px;
+  min-width: 375px;
   height: 50px;
   border-radius: 5px;
   box-shadow: 5px 5px 7px rgb(247, 244, 244);
@@ -134,5 +134,5 @@ button {
 .app-container {
   max-width: 1000px;
   margin: 0 auto;
-  min-width: 376px;
+  min-width: 375px;
 }
