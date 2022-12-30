@@ -1,7 +1,7 @@
 .page-editor-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin: 15px auto;
   max-width: 1000px;
   width: 90%;
@@ -54,7 +54,7 @@ border: none;
 }
 
 .note-title {
-width: 50%;
+width: 141%;
 margin: 10px auto;
 height: 25px;
 color: gray;
