@@ -5,15 +5,20 @@
   margin: 5px;
 }
 .back-link {
-text-decoration: none;
 color: rgb(153, 141, 141);
 font-size: 17px;
 font-weight: 450;
+background-color: white;
+border: none;
+}
+
+.link-tag {
+  text-decoration: none;
 }
 .save-btn, .delete-btn {
   background-color: white;
   border: none;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 500;
   color: rgb(153, 141, 141);
 }
@@ -46,6 +51,8 @@ font-weight: 450;
 }
 
 .note-title {
+width: 240px;
+height: 25px;
 color: gray;
 padding: 10px;
 border-radius: 5px;
@@ -113,4 +120,5 @@ button {
 .buttons-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
