@@ -122,7 +122,7 @@ const PageEditor = (props) => {
           ></input>
         </div>
         <div className="buttons-container">
-          <Link to="/">
+          <Link to="/" className="link-tag">
             <button className="back-link">Back</button>
           </Link>
           <button onClick={handleClick} className="save-btn">
