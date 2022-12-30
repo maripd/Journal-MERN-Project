@@ -118,12 +118,11 @@ button {
 .stickerbtn-container {
   display: flex;
   margin: auto auto;
-  width: 80%;
+  width: 90%;
 }
 
 .addstickers-btn {
   color: #b16e34;
-  width: 90%;
 }
 
 .buttons-container {
