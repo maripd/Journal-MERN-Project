@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1000px;
+  width: 85%;
 }
 .back-link {
 color: rgb(153, 141, 141);
@@ -42,7 +43,7 @@ border: none;
   font-family: 'Gothic A1';
   font-size:x-large;
   color: rgb(157, 154, 154);
-  width: 100%;
+  width: 80%;
   height: 100vh;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' height='30' width='500'%3e%3cline x1='0' y1='0' x2='500' y2='0' style='stroke:%23EAE7D9%3bstroke-width:3'/%3e%3c/svg%3e");
   background-repeat:repeat;
@@ -52,7 +53,8 @@ border: none;
 }
 
 .note-title {
-width: 240px;
+width: 197px;
+margin: 10px auto;
 height: 25px;
 color: gray;
 padding: 10px;
@@ -114,9 +116,12 @@ button {
 .stickerbtn-container {
   display: flex;
   margin: auto auto;
+  width: 80%;
 }
 
 .addstickers-btn {
+  color: #b16e34;
+  width: 80%;
 }
 
 .buttons-container {
